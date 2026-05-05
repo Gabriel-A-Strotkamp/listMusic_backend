@@ -1,0 +1,81 @@
+--Tabelas--
+CREATE TABLE Cantor (
+    id_cantor serial not null PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    data_nascimento DATE,
+    nacionalidade VARCHAR(50)
+);
+
+CREATE TABLE Genero (
+    id_genero serial not null PRIMARY KEY,
+    descricao VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Gravadora (
+    id_gravadora serial not null PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    pais VARCHAR(50)
+);
+
+CREATE TABLE Musica (
+    id_musica serial not null PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    ano INT,
+    album VARCHAR(100),
+    duracao TIME,
+    id_cantor INT,
+    id_genero INT,
+    id_gravadora INT,
+
+    FOREIGN KEY (id_cantor) REFERENCES Cantor(id_cantor),
+    FOREIGN KEY (id_genero) REFERENCES Genero(id_genero),
+    FOREIGN KEY (id_gravadora) REFERENCES Gravadora(id_gravadora)
+);
+
+--Inserindo dados--
+--Cantores--
+INSERT INTO Cantor (nome, data_nascimento, nacionalidade) VALUES
+('The Beatles', '1960-01-01', 'Britânica'),
+('Frei Gilson', '1986-12-17', 'Brasileira'),
+('Metallica', '1981-01-01', 'Americana'),
+('Zé Neto e Cristiano', '2011-01-01', 'Brasileira');
+
+--Generos--
+INSERT INTO Genero (descricao) VALUES
+('Rock'),
+('Gospel'),
+('Metal'),
+('Sertanejo');
+
+--gravadoras--
+INSERT INTO Gravadora (nome, pais) VALUES
+('Apple Records', 'Reino Unido'),
+('Independente', 'Brasil'),
+('Blackened Recordings', 'EUA'),
+('Som Livre', 'Brasil');
+
+--Musicas--
+INSERT INTO Musica (nome, ano, album, duracao, id_cantor, id_genero, id_gravadora) VALUES
+
+-- Beatles
+('Hey Jude', 1968, 'Single', '00:07:11', 1, 1, 1),
+('Let It Be', 1970, 'Let It Be', '00:04:03', 1, 1, 1),
+
+-- Frei Gilson
+('Acalma Minha Tempestade', 2020, 'Ao Vivo', '00:05:20', 2, 2, 2),
+
+-- Metallica
+('Nothing Else Matters', 1991, 'Metallica', '00:06:28', 3, 3, 3),
+('Enter Sandman', 1991, 'Metallica', '00:05:31', 3, 3, 3),
+
+-- Zé Neto e Cristiano
+('Largado às Traças', 2018, 'Esquece o Mundo Lá Fora', '00:03:12', 4, 4, 4);
+
+-- Listar músicas com cantor e gênero
+SELECT 
+    m.nome AS musica,
+    c.nome AS cantor,
+    g.descricao AS genero
+FROM Musica m
+JOIN Cantor c ON m.id_cantor = c.id_cantor
+JOIN Genero g ON m.id_genero = g.id_genero;

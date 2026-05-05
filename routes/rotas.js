@@ -12,4 +12,5 @@ rotas.use(rotasGravadora);
 rotas.use(rotasMusica);
 rotas.use(rotasGenero);
 
+
 module.exports = rotas;

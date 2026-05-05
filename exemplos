@@ -1,0 +1,59 @@
+--add cantor --
+{
+  "nome": "Pe. Zezinho",
+  "data_nascimento": "1941-10-08",
+  "nacionalidade": "Brasileira"
+}
+--add genero--
+{
+  "descricao": "Gaucho"
+}
+--add gravadora--
+{
+  "nome": "Paulinas-COMEP",
+  "pais": "Brasil"
+}
+--add musica--
+{
+  "nome": "Oração pela Família",
+  "ano": 1993,
+  "album": "Canções para a Família",
+  "duracao": "00:04:30",
+  "id_cantor": 5,
+  "id_genero": 5,
+  "id_gravadora": 5
+}
+
+
+--update cantor--
+{
+  "id_cantor": 2,
+  "nome": "Frei Gilson",
+  "data_nascimento": "1986-12-17",
+  "nacionalidade": "Brasileiro"
+}
+
+--update genero --
+{
+  "id_genero": 2,
+  "descricao": "Religioso"
+}
+
+--update gravadora--
+{
+  "id_gravadora": 1,
+  "nome": "Universal Music",
+  "pais": "EUA"
+}
+
+--update Musica--
+{
+  "id_musica": 1,
+  "nome": "Oração pela Família (Remasterizada)",
+  "ano": 1995,
+  "album": "Coletânea Especial",
+  "duracao": "00:04:45",
+  "id_cantor": 5,
+  "id_genero": 2,
+  "id_gravadora": 1
+}
