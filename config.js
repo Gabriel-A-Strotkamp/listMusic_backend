@@ -19,4 +19,4 @@ if (isProduction) {
   })
 }
 
-module.exports = { pool }
+module.exports = {pool}

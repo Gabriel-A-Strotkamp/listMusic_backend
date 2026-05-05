@@ -1,3 +1,6 @@
+const { pool } = require('../config');
+const Cantor = require ('../entities/Musica')
+
 const addMusicaDB = async (body) => {
     try {   
         const { nome, ano, album, duracao, id_cantor, id_genero, id_gravadora } = body; 

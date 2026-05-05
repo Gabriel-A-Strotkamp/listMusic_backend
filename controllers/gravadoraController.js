@@ -43,13 +43,13 @@ const getGravadoraPorId = async (request, response) => {
             message: err
         }));           
 }
-const getGravadoras = async () => {
-      await getGravadoraPorIdDB(parseInt(request.params.id))
+const getGravadoras = async (request, response) => {
+    await getGravadorasDB()
         .then(data => response.status(200).json(data))
         .catch(err => response.status(400).json({
             status: 'error',
             message: err
-        }));   
+        }));
 }
 
 module.exports = {

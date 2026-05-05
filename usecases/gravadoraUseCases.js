@@ -1,3 +1,6 @@
+const { pool } = require('../config');
+const Cantor = require ('../entities/Gravadora')
+
 const addGravadoraDB = async (body) => {
     try {   
         const { nome, pais } = body; 
