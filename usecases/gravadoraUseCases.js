@@ -65,6 +65,14 @@ const getGravadoraPorIdDB = async (id_gravadora) => {
     }     
 }
 
+const getGravadorasDB = async () => {
+    try {
+        const results = await pool.query(`SELECT * FROM gravadora`);
+        return results.rows;
+    } catch (err) {
+        throw "Erro ao recuperar gravadoras: " + err;
+    }
+}
 module.exports = {
-    addGravadoraDB, updateGravadoraDB, deleteGravadoraDB, getGravadoraPorIdDB
+    addGravadoraDB, updateGravadoraDB, deleteGravadoraDB, getGravadoraPorIdDB,getGravadorasDB
 }

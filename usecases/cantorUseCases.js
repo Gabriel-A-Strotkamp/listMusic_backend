@@ -69,6 +69,15 @@ const getCantorPorIdDB = async (id_cantor) => {
     }     
 }
 
+const getCantoresDB = async () => {
+    try {
+        const results = await pool.query(`SELECT * FROM cantor`);
+        return results.rows;
+    } catch (err) {
+        throw "Erro ao recuperar cantores: " + err;
+    }
+}
+
 module.exports = {
-    addCantorDB, updateCantorDB, deleteCantorDB, getCantorPorIdDB
+    addCantorDB, updateCantorDB, deleteCantorDB, getCantorPorIdDB, getCantoresDB
 }

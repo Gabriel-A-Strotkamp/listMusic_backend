@@ -65,7 +65,29 @@ const getMusicaPorIdDB = async (id_musica) => {
         throw "Erro ao recuperar a música: " + err;
     }     
 }
+const getMusicasDB = async () => {
+    try {
+        const results = await pool.query(`
+            SELECT 
+                m.id_musica,
+                m.nome,
+                m.ano,
+                m.album,
+                m.duracao,
+                c.nome AS cantor,
+                g.descricao AS genero,
+                gr.nome AS gravadora
+            FROM musica m
+            JOIN cantor c ON m.id_cantor = c.id_cantor
+            JOIN genero g ON m.id_genero = g.id_genero
+            JOIN gravadora gr ON m.id_gravadora = gr.id_gravadora
+        `);
 
+        return results.rows;
+    } catch (err) {
+        throw "Erro ao recuperar músicas: " + err;
+    }
+}
 module.exports = {
-    addMusicaDB, updateMusicaDB, deleteMusicaDB, getMusicaPorIdDB
+    addMusicaDB, updateMusicaDB, deleteMusicaDB, getMusicaPorIdDB, getMusicasDB
 }

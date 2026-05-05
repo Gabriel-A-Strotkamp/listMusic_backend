@@ -64,7 +64,15 @@ const getGeneroPorIdDB = async (id_genero) => {
         throw "Erro ao recuperar o gênero: " + err;
     }     
 }
+const getGenerosDB = async () => {
+    try {
+        const results = await pool.query(`SELECT * FROM genero`);
+        return results.rows;
+    } catch (err) {
+        throw "Erro ao recuperar gêneros: " + err;
+    }
+}
 
 module.exports = {
-    addGeneroDB, updateGeneroDB, deleteGeneroDB, getGeneroPorIdDB
+    addGeneroDB, updateGeneroDB, deleteGeneroDB, getGeneroPorIdDB, getGenerosDB
 }
