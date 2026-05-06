@@ -1,4 +1,4 @@
-const { pool } = require('../config');
+const pool = require('../config');
 const Cantor = require ('../entities/Musica')
 
 const addMusicaDB = async (body) => {

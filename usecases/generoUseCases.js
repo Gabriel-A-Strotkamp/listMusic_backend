@@ -1,5 +1,5 @@
-const { pool } = require('../config');
-const Cantor = require ('../entities/Genero')
+const pool = require('../config');
+const Genero = require ('../entities/Genero')
 
 const addGeneroDB = async (body) => {
     try {   
