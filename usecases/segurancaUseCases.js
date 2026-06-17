@@ -1,10 +1,10 @@
-const {Pool} = require('../config')
+const {pool} = require('../config')
 const Usuario = require('../entities/Usuario')
 
 const autenticaUsuarioDB = async (body) => {
     try {           
         const { email, senha } = body
-        const results = await Pool.query(`SELECT * FROM usuarios WHERE email = $1 AND senha = $2`,
+        const results = await pool.query(`SELECT * FROM usuarios WHERE email = $1 AND senha = $2`,
         [email, senha]);
         
         if (results.rowCount == 0) {
