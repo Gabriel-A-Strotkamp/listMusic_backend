@@ -1,4 +1,4 @@
-const { Pool } = require('pg')
+const { pool } = require('pg')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -19,4 +19,4 @@ if (isProduction) {
   })
 }
 
-module.exports = Pool;
+module.exports = pool;
