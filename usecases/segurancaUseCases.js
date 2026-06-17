@@ -1,4 +1,4 @@
-const { pool } = require('../config')
+const pool = require('../config')
 const Usuario = require('../entities/Usuario')
 
 const autenticaUsuarioDB = async (body) => {
